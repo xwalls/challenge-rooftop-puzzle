@@ -2,6 +2,6 @@ import rooftop_puzzle as rp
 
 
 def test_check():
-    expected = True
+    expected = False
     obtained = rp.check()
     assert expected == obtained
