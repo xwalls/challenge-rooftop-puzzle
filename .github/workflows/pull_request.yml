@@ -15,6 +15,6 @@ jobs:
     - name: Verify code format
       run: docker run rooftop-puzzle make check
     - name: Run tests
-      run: docker run rooftop-puzzle make coverage
+      run: docker run rooftop-puzzle make tests
     - name: Run mutation testing
       run: docker run rooftop-puzzle make mutants      
