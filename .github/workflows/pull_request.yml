@@ -1,0 +1,20 @@
+name: Tests on PR
+on:
+  pull_request:
+    branches:
+      - develop
+      - main
+jobs:
+  actions:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Copy repository
+      uses: actions/checkout@v2
+    - name: Build Image
+      run: docker build --tag rooftop-puzzle .
+    - name: Verify code format
+      run: docker run rooftop-puzzle make check
+    - name: Run tests
+      run: docker run rooftop-puzzle make tests
+    - name: Run mutation testing
+      run: docker run rooftop-puzzle make mutants      
